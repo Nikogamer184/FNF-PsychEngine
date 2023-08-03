@@ -77,6 +77,8 @@ import psychlua.HScript;
 import tea.SScript;
 #end
 
+import custom.CustomScript;
+
 class PlayState extends MusicBeatState
 {
 	public static var STRUM_X = 42;
@@ -630,6 +632,8 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		callOnScripts('onCreatePost');
+
+		CustomScript.customCreate('PlayState', SONG.song);
 
 		cacheCountdown();
 		cachePopUpScore();
