@@ -45,11 +45,16 @@ jobs:
       - name: Building the game
         run: |
           haxelib run lime build windows --app-version="4.0.0-${{ github.run_id}}"
-      - name: Publish Artifact
+      - name: Publish Build
         uses: actions/upload-artifact@v2.2.4
         with:
           name: Build
           path: export/release/windows/bin
+      - name: Publish Exe
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: Build
+          path: export/release/windows/bin/Fanbuild.exe
       - name: Clearing already existing cache
         uses: actions/github-script@v6
         with:
