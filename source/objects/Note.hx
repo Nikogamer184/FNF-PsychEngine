@@ -82,7 +82,7 @@ class Note extends FlxSprite
 		texture: null,
 		antialiasing: !PlayState.isPixelStage,
 		useGlobalShader: false,
-		useRGBShader: false,
+		useRGBShader: (PlayState.SONG != null) ? !(PlayState.SONG.disableNoteRGB == true) : true,
 		r: -1,
 		g: -1,
 		b: -1,
