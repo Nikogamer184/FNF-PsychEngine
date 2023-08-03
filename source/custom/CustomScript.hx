@@ -4,17 +4,21 @@ import psychlua.LuaUtils;
 
 class CustomScript
 {
-	public static function customCreate(state:String, ?songName:String)
+	public function new()
+	{
+	}
+
+	var game:PlayState = PlayState.instance;
+
+	function addSpriteToStage(sprite:FlxSprite)
+	{
+		game.insert(game.members.indexOf(LuaUtils.getLowestCharacterGroup()), sprite);
+	}
+
+	public function customCreate(state:String, ?songName:String)
 	{
 		if (state == 'PlayState')
 		{
-			var game:PlayState = PlayState.instance;
-
-			function addSpriteToStage(sprite:FlxSprite)
-			{
-				game.insert(game.members.indexOf(LuaUtils.getLowestCharacterGroup()), sprite);
-			}
-
 			switch (songName)
 			{
 				case 'SET ME FREE':

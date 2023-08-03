@@ -271,6 +271,8 @@ class PlayState extends MusicBeatState
 	public var startCallback:Void->Void = null;
 	public var endCallback:Void->Void = null;
 
+	var customScript:CustomScript = new CustomScript();
+
 	override public function create()
 	{
 		// trace('Playback Rate: ' + playbackRate);
@@ -656,7 +658,7 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		callOnScripts('onCreatePost');
 
-		CustomScript.customCreate('PlayState', SONG.song);
+		customScript.customCreate('PlayState', SONG.song);
 
 		cacheCountdown();
 		cachePopUpScore();
