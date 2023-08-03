@@ -53,7 +53,7 @@ jobs:
       - name: Publish Exe
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: Build
+          name: Executable
           path: export/release/windows/bin/Fanbuild.exe
       - name: Clearing already existing cache
         uses: actions/github-script@v6
