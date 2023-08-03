@@ -4,11 +4,12 @@ import psychlua.LuaUtils;
 
 class CustomScript
 {
+	var game:PlayState;
+
 	public function new()
 	{
+		game = PlayState.instance;
 	}
-
-	var game:PlayState = PlayState.instance;
 
 	function addSpriteToStage(sprite:FlxSprite)
 	{
