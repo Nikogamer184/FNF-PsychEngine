@@ -255,6 +255,9 @@ class PlayState extends MusicBeatState
 
 	public var luaArray:Array<FunkinLua> = [];
 
+	// My additions
+	var customScript:CustomScript;
+
 	#if LUA_ALLOWED
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 	#end
@@ -656,7 +659,7 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		callOnScripts('onCreatePost');
 
-		var customScript:CustomScript = new CustomScript();
+		customScript = new CustomScript();
 
 		customScript.customCreate('PlayState', SONG.song);
 
@@ -3388,6 +3391,8 @@ class PlayState extends MusicBeatState
 		lastStepHit = curStep;
 		setOnScripts('curStep', curStep);
 		callOnScripts('onStepHit');
+
+		customScript.customStepHit('PlayState', curStep, SONG.song);
 	}
 
 	var lastBeatHit:Int = -1;
