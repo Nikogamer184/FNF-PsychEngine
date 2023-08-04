@@ -43,6 +43,9 @@ class CustomScript
 			switch (songName)
 			{
 				case 'SET ME FREE':
+					game.variables.set('timeTxt.visible', false);
+					game.variables.set('timeBar.visible', false);
+
 					game.camGame.flash(0xFF000000, 10, null, false);
 					game.cameraSpeed = 10;
 					game.camHUD.alpha = 0;
@@ -62,8 +65,10 @@ class CustomScript
 					localSprites[6] = new FlxSprite(-500, -200).loadGraphic(Paths.image('backgrounds/flanima/curtains'));
 
 					localSprites[4].scale.set(1.1, 1.1);
+					localSprites[4].updateHitbox();
 					localSprites[6].scrollFactor.set(1.3, 1.3);
 					localSprites[6].scale.set(0.9, 0.9);
+					localSprites[6].updateHitbox();
 				default:
 					return;
 			}
@@ -125,6 +130,9 @@ class CustomScript
 							game.add(localSprites[5]);
 							game.add(localSprites[6]);
 						}
+					case 2048:
+						game.camGame.fade(0xFF000000, 5.6, false, null, false);
+						game.camHUD.fade(0xFF000000, 5.6, false, null, false);
 					default:
 						return;
 				}
