@@ -59,7 +59,7 @@ class CustomScript
 			switch (songName)
 			{
 				case 'SET ME FREE':
-					game.execCustomScriptCode('timeTxt.kill();');
+					game.timeTxt.kill();
 					game.timeBar.kill();
 
 					game.camGame.flash(0xFF000000, 10, null, false);

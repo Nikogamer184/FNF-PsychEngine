@@ -214,7 +214,7 @@ class PlayState extends MusicBeatState
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
 
-	var timeTxt:FlxText;
+	public var timeTxt:FlxText;
 
 	var scoreTxtTween:FlxTween;
 
@@ -3942,10 +3942,4 @@ class PlayState extends MusicBeatState
 		return false;
 	}
 	#end
-
-	public function execCustomScriptCode(code:String)
-	{
-		var customScriptCodeRunner:SScript = {};
-		customScriptCodeRunner.doString(code);
-	}
 }
