@@ -8,7 +8,7 @@ class CustomScript
 {
 	var game:PlayState;
 
-	var localSprites:Array<FlxSprite>;
+	var localSprites:Array<Dynamic>;
 
 	public function new()
 	{
@@ -47,13 +47,13 @@ class CustomScript
 					game.camHUD.alpha = 0;
 					game.dadGroup.alpha = 0.0001;
 					game.gfGroup.alpha = 0.0001;
+					game.iconP2.alpha = 0.0001;
 
-					var loading:FlxSprite = new FlxSprite(1150, 880).loadGraphic(Paths.image('backgrounds/flanima/loading'));
-					var noway:FlxSprite = new FlxSprite(-600, -300).makeGraphic(2600, 1600, 0xFFCBFD56);
-					localSprites.insert(0, loading);
+					localSprites[0] = new FlxSprite(1150, 880).loadGraphic(Paths.image('backgrounds/flanima/loading'));
+					localSprites[1] = new FlxSprite(-600, -300).makeGraphic(2600, 1600, 0xFFCBFD56);
 
-					addSpriteToStage(noway);
-					game.add(loading);
+					addSpriteToStage(localSprites[1]);
+					game.add(localSprites[0]);
 				default:
 					return;
 			}
@@ -94,9 +94,12 @@ class CustomScript
 							game.cameraSpeed = 5;
 							game.defaultCamZoom = 1.1;
 							game.dadGroup.alpha = 1;
+							game.iconP2.alpha = 1;
 
 							game.boyfriendCameraOffset[0] = -50;
 							game.boyfriendCameraOffset[1] = 0;
+						case 256:
+							game.defaultCamZoom = 1;
 					}
 				default:
 					return;
