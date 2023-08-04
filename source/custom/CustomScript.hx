@@ -2,8 +2,10 @@
 	Changes outside this file
 	import custom.CustomScript;		At top of PlayState
 	var customScript:CustomScript;		At top of PlayState
+
 	customScript = new CustomScript();
 	customScript.customCreate(SONG.song);		After instance = this;
+
 	customScript.customCreatePost(SONG.song);		After callOnScripts('onCreatePost');
 	customScript.customStepHit(curStep, SONG.song);		After callOnScripts('onStepHit');
 	customScript.customOpponentNoteHit(note, SONG.song);		After callOnHScript('opponentNoteHit', [note]);
@@ -165,6 +167,7 @@ class CustomScript
 				{
 					game.health -= 0.015;
 				}
+				game.opponentStrums.members[note.noteData].playAnim('static', true);
 			default:
 				return;
 		}
