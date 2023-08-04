@@ -1,15 +1,29 @@
+/*
+	Changes outside this file
+	import custom.CustomScript;		At top of PlayState
+	var customScript:CustomScript;		At top of PlayState
+	customScript = new CustomScript();
+	customScript.customCreate(SONG.song);		After instance = this;
+	customScript.customCreatePost(SONG.song);		After callOnScripts('onCreatePost');
+	customScript.customStepHit(curStep, SONG.song);		After callOnScripts('onStepHit');
+	customScript.customOpponentNoteHit(note, SONG.song);		After callOnHScript('opponentNoteHit', [note]);
+	public var timeTxt:FlxText;		Instead of var timeTxt:FlxText;
+ */
+
 package custom;
 
 import psychlua.LuaUtils;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import backend.ClientPrefs;
+import backend.Conductor;
+import objects.Note;
 
 class CustomScript
 {
 	var game:PlayState;
 
-	var localSprites:Array<Dynamic>;
+	var localSprites:Array<FlxSprite>;
 
 	public function new()
 	{
@@ -136,6 +150,23 @@ class CustomScript
 					default:
 						return;
 				}
+		}
+	}
+
+	public function customOpponentNoteHit(note:Note, songName:String)
+	{
+		switch (songName)
+		{
+			case 'SET ME FREE':
+				game.camHUD.shake(0.0025, 0.1);
+				game.triggerEvent('Add Camera Zoom', '', '0.002', Conductor.songPosition);
+
+				if (game.health >= 0.02)
+				{
+					game.health -= 0.015;
+				}
+			default:
+				return;
 		}
 	}
 }

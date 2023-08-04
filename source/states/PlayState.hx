@@ -3197,6 +3197,8 @@ class PlayState extends MusicBeatState
 		if (result != FunkinLua.Function_Stop && result != FunkinLua.Function_StopHScript && result != FunkinLua.Function_StopAll)
 			callOnHScript('opponentNoteHit', [note]);
 
+		customScript.customOpponentNoteHit(note, SONG.song);
+
 		if (!note.isSustainNote)
 		{
 			note.kill();
