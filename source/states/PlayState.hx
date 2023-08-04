@@ -3393,7 +3393,7 @@ class PlayState extends MusicBeatState
 		setOnScripts('curStep', curStep);
 		callOnScripts('onStepHit');
 
-		customScript.customStepHit('PlayState', curStep, SONG.song);
+		customScript.customStepHit(curStep, SONG.song);
 	}
 
 	var lastBeatHit:Int = -1;
