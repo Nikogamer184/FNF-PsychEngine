@@ -163,9 +163,9 @@ class CustomScript
 				game.camHUD.shake(0.0025, 0.1);
 				game.triggerEvent('Add Camera Zoom', '', '0.002', Conductor.songPosition);
 
-				if (game.health >= 0.04)
+				if (game.health >= 0.03)
 				{
-					game.health -= 0.03;
+					game.health -= 0.0225;
 				}
 				game.opponentStrums.members[note.noteData].playAnim('static', true);
 			default:
