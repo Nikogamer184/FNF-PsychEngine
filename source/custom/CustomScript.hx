@@ -43,8 +43,8 @@ class CustomScript
 			switch (songName)
 			{
 				case 'SET ME FREE':
-					game.variables.set('timeTxt.visible', false);
-					game.variables.set('timeBar.visible', false);
+					game.timeTxt.visible = false;
+					game.timeBar.visible = false;
 
 					game.camGame.flash(0xFF000000, 10, null, false);
 					game.cameraSpeed = 10;
