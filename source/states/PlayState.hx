@@ -285,6 +285,9 @@ class PlayState extends MusicBeatState
 		// for lua
 		instance = this;
 
+		customScript = new CustomScript();
+		customScript.customCreate('PlayState', SONG.song);
+
 		PauseSubState.songName = null; // Reset to default
 		playbackRate = ClientPrefs.getGameplaySetting('songspeed');
 		fullComboFunction = fullComboUpdate;
@@ -659,9 +662,7 @@ class PlayState extends MusicBeatState
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		callOnScripts('onCreatePost');
 
-		customScript = new CustomScript();
-
-		customScript.customCreate('PlayState', SONG.song);
+		customScript.customCreatePost('PlayState', SONG.song);
 
 		cacheCountdown();
 		cachePopUpScore();

@@ -25,6 +25,20 @@ class CustomScript
 			switch (songName)
 			{
 				case 'SET ME FREE':
+					game.skipCountdown = true;
+				default:
+					return;
+			}
+		}
+	}
+
+	public function customCreatePost(state:String, ?songName:String)
+	{
+		if (state == 'PlayState')
+		{
+			switch (songName)
+			{
+				case 'SET ME FREE':
 					game.camGame.flash(0xFF000000, 10, null, false);
 					game.skipCountdown = true;
 					game.cameraSpeed = 10;
