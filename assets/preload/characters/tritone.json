@@ -52,12 +52,12 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "idle",
+			"name": "idle2",
 			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/flaminal",
+	"image": "characters/flanimal",
 	"position": [
 		-10,
 		80
